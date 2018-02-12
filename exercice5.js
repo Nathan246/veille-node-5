@@ -26,3 +26,8 @@ app.get('/', function (req, res) {
  res.render('index.ejs', {adresses: resultat})
  }) 
 })
+
+app.get('/formulaire', (req, res) => {
+ console.log('la route get / = ' + req.url)
+ res.sendFile(__dirname + "/public/html/forme.htm")
+})

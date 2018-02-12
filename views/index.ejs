@@ -8,6 +8,7 @@
  Node.js, Express et MongoDB.
  <button id='update'>Mise à jour téléphone</button>
  <form action="/adresse" method="POST">
+ <input type="text" placeholder="prenom" name="prenom">
  <input type="text" placeholder="nom" name="nom">
  <input type="text" placeholder="Telephone" name="telephone">
  <input type="text" placeholder="courriel" name="courriel">
@@ -18,6 +19,7 @@
  <% adresses.forEach(elm => {%>
  <tr>
  <td><%= elm.id %></td>
+ <td><%= elm.prenom %></td>
  <td><%= elm.nom %></td>
  <td><%= elm.telephone %></td>
  <td><%= elm.courriel %></td>
