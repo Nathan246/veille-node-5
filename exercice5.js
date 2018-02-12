@@ -18,20 +18,11 @@ MongoClient.connect('mongodb://127.0.0.1:27017/carnet_adresse', (err, database) 
  })
 })
 
-/*app.get('/', function (req, res) {
+app.get('/', function (req, res) {
    let cursor = db.collection('adresse').find().toArray(function(err, resultat){
  if (err) return console.log(err)
  // transfert du contenu vers la vue index.ejs (renders)
  // affiche le contenu de la BD
- res.render('gabarit.ejs', {adresses: resultat})
- }) 
-})*/
-
-app.get('/formulaire', function (req, res) {
-   let cursor = db.collection('adresse').find().toArray(function(err, resultat){
- if (err) return console.log(err)
- // transfert du contenu vers la vue index.ejs (renders)
- // affiche le contenu de la BD
- res.render('gabarit.ejs', {adresses: resultat})
+ res.render('index.ejs', {adresses: resultat})
  }) 
 })
