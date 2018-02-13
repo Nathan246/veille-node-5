@@ -6,6 +6,7 @@ app.use(express.static('public'));
 const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient // le pilote MongoDB
 app.set('view engine', 'ejs'); // générateur de template
+// Utilisation de bodyParser
 app.use(bodyParser());
 
 var db // variable qui contiendra le lien sur la BD
