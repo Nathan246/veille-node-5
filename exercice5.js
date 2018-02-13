@@ -6,6 +6,7 @@ app.use(express.static('public'));
 const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient // le pilote MongoDB
 app.set('view engine', 'ejs'); // générateur de template
+app.use(bodyParser());
 
 var db // variable qui contiendra le lien sur la BD
 
@@ -18,7 +19,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017/carnet_adresse', (err, database) 
  })
 })
 
-app.get('/', function (req, res) {
+app.get('/membres', function (req, res) {
    let cursor = db.collection('adresse').find().toArray(function(err, resultat){
  if (err) return console.log(err)
  // transfert du contenu vers la vue index.ejs (renders)
@@ -36,7 +37,7 @@ app.post('/adresse', (req, res) => {
  db.collection('adresse').save(req.body, (err, result) => {
  if (err) return console.log(err)
  console.log('sauvegarder dans la BD')
- res.redirect('/')
+ res.redirect('/membres')
  })
 
 })
